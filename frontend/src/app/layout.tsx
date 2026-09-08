@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Shell } from "@/components/layout/Shell";
+import { ThemeProvider } from "@/lib/theme";
 
 const geistSans = Geist({
   variable: "--font-font-sans",
@@ -14,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Finance Agent | Production Fintech Platform",
+  title: "FinTrack+ | Minimal Financial Intelligence",
   description:
-    "Autonomous personal finance web application with natural-language tracking, multimodal OCR receipt scanning, and AI advisory.",
+    "Clean, production-ready personal finance platform with smart expense tracking, receipt OCR scanning, and FinTrack+ financial advisory.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-slate-950 font-sans`}>
-        <Shell>{children}</Shell>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[#fafafa] dark:bg-[#09090b] text-neutral-900 dark:text-neutral-100 font-sans transition-colors duration-200`}
+      >
+        <ThemeProvider>
+          <Shell>{children}</Shell>
+        </ThemeProvider>
       </body>
     </html>
   );

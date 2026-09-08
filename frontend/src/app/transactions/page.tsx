@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
@@ -13,23 +13,23 @@ export default function TransactionsPage() {
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-            <ArrowLeftRight className="h-6 w-6 text-blue-400" />
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight flex items-center gap-2">
+            <ArrowLeftRight className="h-5 w-5 text-neutral-700 dark:text-neutral-300" />
             Transaction Ledger
           </h2>
-          <p className="text-sm text-slate-400">
-            Historical transaction entries, auto-categorized records & account reconciliations
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
+            Historical transaction records, categorizations & account reconciliations
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" className="gap-2">
-            <Download className="h-4 w-4" />
+            <Download className="h-3.5 w-3.5" />
             Export CSV
           </Button>
           <Link href="/add-expense">
             <Button size="sm" variant="primary" className="gap-2">
-              <Plus className="h-4 w-4" />
+              <Plus className="h-3.5 w-3.5" />
               New Entry
             </Button>
           </Link>
@@ -41,14 +41,14 @@ export default function TransactionsPage() {
         <CardContent className="p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <Input placeholder="Filter by merchant or note..." />
-            <div className="flex items-center rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-400 justify-between">
+            <div className="flex items-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/60 px-3 py-2 text-xs text-neutral-600 dark:text-neutral-400 justify-between">
               <span>All Categories</span>
-              <Filter className="h-4 w-4 text-slate-500" />
+              <Filter className="h-3.5 w-3.5 text-neutral-400" />
             </div>
-            <div className="flex items-center rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-400 justify-between">
+            <div className="flex items-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/60 px-3 py-2 text-xs text-neutral-600 dark:text-neutral-400 justify-between">
               <span>Date: Last 30 Days</span>
             </div>
-            <div className="flex items-center rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm text-slate-400 justify-between">
+            <div className="flex items-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/60 px-3 py-2 text-xs text-neutral-600 dark:text-neutral-400 justify-between">
               <span>Type: All Flows</span>
             </div>
           </div>
@@ -58,18 +58,20 @@ export default function TransactionsPage() {
       {/* Transactions Data Shell */}
       <RecentTransactionsShell />
 
-      {/* Future feature indicator */}
-      <div className="rounded-xl border border-purple-500/20 bg-purple-950/10 p-4 flex items-center justify-between">
+      {/* FinTrack+ Categorization notice */}
+      <div className="rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/60 dark:bg-neutral-900/40 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Sparkles className="h-5 w-5 text-purple-400" />
+          <Sparkles className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
           <div>
-            <p className="text-xs font-semibold text-white">AI Auto-Categorization Engine</p>
-            <p className="text-[11px] text-slate-400">
-              Transactions will be classified autonomously into 24+ standard accounting categories upon Supabase sync.
+            <p className="text-xs font-semibold text-neutral-900 dark:text-white">
+              FinTrack+ Auto-Categorization
+            </p>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
+              Transactions are classified autonomously into 24+ accounting categories upon Supabase sync.
             </p>
           </div>
         </div>
-        <Badge variant="purple">Phase 2</Badge>
+        <Badge variant="secondary">Phase 2</Badge>
       </div>
     </div>
   );

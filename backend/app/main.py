@@ -11,7 +11,7 @@ def create_application() -> FastAPI:
         openapi_url=f"{settings.API_V1_STR}/openapi.json",
         docs_url=f"{settings.API_V1_STR}/docs",
         redoc_url=f"{settings.API_V1_STR}/redoc",
-        description="Production-grade backend engine for AI Finance Agent.",
+        description="Production-grade backend engine for FinTrack+.",
     )
 
     # Set all CORS enabled origins

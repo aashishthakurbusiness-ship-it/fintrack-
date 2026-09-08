@@ -1,11 +1,11 @@
 from typing import List, Union
-from pydantic import AnyHttpUrl, field_validator
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 import json
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "AI Finance Agent API"
+    PROJECT_NAME: str = "FinTrack+ API"
     VERSION: str = "0.1.0"
     API_V1_STR: str = "/api/v1"
     ENVIRONMENT: str = "development"

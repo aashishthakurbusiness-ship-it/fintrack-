@@ -1,40 +1,32 @@
 import React from "react";
 import Link from "next/link";
-import { PlusCircle, ScanLine, Sparkles, PieChart, ArrowRight } from "lucide-react";
+import { PlusCircle, ScanLine, Sparkles, PieChart, ArrowUpRight } from "lucide-react";
 
 export function QuickActions() {
   const actions = [
     {
       title: "Add Expense",
-      description: "Quick log with natural-language text parsing",
+      description: "Quick log via natural text or structured input",
       href: "/add-expense",
       icon: PlusCircle,
-      gradient: "from-blue-600/20 to-indigo-600/10 border-blue-500/30 text-blue-400",
-      accent: "hover:border-blue-500/50",
     },
     {
       title: "Scan Receipt",
-      description: "Auto-extract items, tax, and merchant via OCR",
+      description: "Auto-extract line items via multimodal OCR",
       href: "/scan-receipt",
       icon: ScanLine,
-      gradient: "from-emerald-600/20 to-teal-600/10 border-emerald-500/30 text-emerald-400",
-      accent: "hover:border-emerald-500/50",
     },
     {
-      title: "Ask AI Advisor",
-      description: "Affordability, EMI math & personalized financial strategy",
+      title: "FinTrack+ Advisor",
+      description: "Affordability, EMI math & wealth strategy",
       href: "/ai-advisor",
       icon: Sparkles,
-      gradient: "from-purple-600/20 to-pink-600/10 border-purple-500/30 text-purple-400",
-      accent: "hover:border-purple-500/50",
     },
     {
       title: "Adjust Budgets",
-      description: "Inspect category thresholds & overspending alerts",
+      description: "Inspect category caps & overspending alerts",
       href: "/budgets",
       icon: PieChart,
-      gradient: "from-amber-600/20 to-orange-600/10 border-amber-500/30 text-amber-400",
-      accent: "hover:border-amber-500/50",
     },
   ];
 
@@ -46,17 +38,21 @@ export function QuickActions() {
           <Link
             key={act.title}
             href={act.href}
-            className={`group relative flex flex-col justify-between rounded-2xl border bg-slate-900/60 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30 ${act.gradient} ${act.accent}`}
+            className="group relative flex flex-col justify-between rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/80 dark:bg-neutral-900/40 p-4.5 backdrop-blur-xl transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm"
           >
             <div>
               <div className="flex items-center justify-between">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-inherit bg-slate-950/60">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-neutral-200/80 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/60 text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
                   <Icon className="h-4 w-4" />
                 </div>
-                <ArrowRight className="h-3.5 w-3.5 text-slate-500 transition-transform group-hover:translate-x-1 group-hover:text-slate-200" />
+                <ArrowUpRight className="h-3.5 w-3.5 text-neutral-400 dark:text-neutral-500 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-900 dark:group-hover:text-white" />
               </div>
-              <h4 className="mt-3 text-sm font-semibold text-white">{act.title}</h4>
-              <p className="mt-1 text-xs text-slate-400 line-clamp-2">{act.description}</p>
+              <h4 className="mt-3 text-xs font-semibold text-neutral-900 dark:text-white">
+                {act.title}
+              </h4>
+              <p className="mt-1 text-[11px] text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                {act.description}
+              </p>
             </div>
           </Link>
         );

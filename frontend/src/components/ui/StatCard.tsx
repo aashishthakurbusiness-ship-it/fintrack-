@@ -8,8 +8,8 @@ export interface StatCardProps {
   currency?: string;
   changePercent?: number;
   period?: string;
-  icon: React.ReactNode;
-  variant?: "blue" | "emerald" | "purple" | "amber";
+  icon?: React.ReactNode;
+  accent?: "neutral" | "emerald" | "amber";
   className?: string;
 }
 
@@ -20,52 +20,45 @@ export function StatCard({
   changePercent,
   period = "vs last month",
   icon,
-  variant = "blue",
+  accent = "neutral",
   className,
 }: StatCardProps) {
   const isPositive = changePercent !== undefined && changePercent > 0;
   const isNegative = changePercent !== undefined && changePercent < 0;
 
-  const glowColors = {
-    blue: "from-blue-500/10 via-indigo-500/5 to-transparent border-blue-500/20",
-    emerald: "from-emerald-500/10 via-teal-500/5 to-transparent border-emerald-500/20",
-    purple: "from-purple-500/10 via-pink-500/5 to-transparent border-purple-500/20",
-    amber: "from-amber-500/10 via-orange-500/5 to-transparent border-amber-500/20",
-  };
-
-  const iconColors = {
-    blue: "bg-blue-500/10 text-blue-400 border-blue-500/30",
-    emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
-    purple: "bg-purple-500/10 text-purple-400 border-purple-500/30",
-    amber: "bg-amber-500/10 text-amber-400 border-amber-500/30",
-  };
-
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border bg-gradient-to-br p-6 shadow-xl shadow-black/20 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-2xl bg-slate-900/70",
-        glowColors[variant],
+        "group relative overflow-hidden rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/90 dark:bg-neutral-900/50 p-5 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700",
         className
       )}
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-400">{title}</p>
-          <h4 className="mt-2 text-2xl font-bold tracking-tight text-white font-mono">
+          <p className="text-[11px] font-medium tracking-wide uppercase text-neutral-500 dark:text-neutral-400">
+            {title}
+          </p>
+          <h4 className="mt-2 text-2xl font-bold tracking-tight text-neutral-900 dark:text-white font-mono">
             {formatCurrency(amount, currency)}
           </h4>
         </div>
-        <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl border", iconColors[variant])}>
-          {icon}
-        </div>
+        {icon && (
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200/80 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/60 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
+            {icon}
+          </div>
+        )}
       </div>
 
       {changePercent !== undefined && (
         <div className="mt-4 flex items-center gap-2 text-xs">
           <span
             className={cn(
-              "inline-flex items-center gap-1 font-semibold",
-              isPositive ? "text-emerald-400" : isNegative ? "text-rose-400" : "text-slate-400"
+              "inline-flex items-center gap-1 font-medium",
+              isPositive
+                ? "text-emerald-600 dark:text-emerald-400"
+                : isNegative
+                ? "text-rose-600 dark:text-rose-400"
+                : "text-neutral-500 dark:text-neutral-400"
             )}
           >
             {isPositive ? (
@@ -77,7 +70,7 @@ export function StatCard({
             )}
             {formatPercent(changePercent)}
           </span>
-          <span className="text-slate-400">{period}</span>
+          <span className="text-neutral-500 dark:text-neutral-400 text-[11px]">{period}</span>
         </div>
       )}
     </div>

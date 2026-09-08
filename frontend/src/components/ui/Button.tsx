@@ -11,28 +11,28 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", isLoading = false, children, disabled, ...props }, ref) => {
     const baseStyles =
-      "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer";
+      "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer";
 
     const variantStyles = {
       primary:
-        "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/20 active:scale-[0.99]",
+        "bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:hover:bg-white dark:text-neutral-950 shadow-sm active:scale-[0.99]",
       secondary:
-        "bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700/80 active:scale-[0.99]",
+        "bg-neutral-100 hover:bg-neutral-200/80 text-neutral-900 dark:bg-neutral-800 dark:hover:bg-neutral-700/80 dark:text-neutral-100 border border-neutral-200/80 dark:border-neutral-700/60 active:scale-[0.99]",
       outline:
-        "border border-slate-700/80 bg-transparent hover:bg-slate-800/60 text-slate-200 hover:text-white",
+        "border border-neutral-200 dark:border-neutral-800 bg-transparent hover:bg-neutral-100/80 dark:hover:bg-neutral-800/60 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white",
       ghost:
-        "bg-transparent hover:bg-slate-800/60 text-slate-300 hover:text-white",
+        "bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800/60 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white",
       danger:
-        "bg-rose-600 hover:bg-rose-500 text-white shadow-lg shadow-rose-500/20 active:scale-[0.99]",
+        "bg-rose-600 hover:bg-rose-500 text-white shadow-sm active:scale-[0.99]",
       emerald:
-        "bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:scale-[0.99]",
+        "bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm active:scale-[0.99]",
     };
 
     const sizeStyles = {
       sm: "h-8 px-3 text-xs gap-1.5",
-      md: "h-10 px-4 text-sm gap-2",
-      lg: "h-12 px-6 text-base gap-2.5",
-      icon: "h-10 w-10 p-0",
+      md: "h-9 px-4 text-xs gap-2",
+      lg: "h-11 px-6 text-sm gap-2.5",
+      icon: "h-9 w-9 p-0",
     };
 
     return (
@@ -42,7 +42,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(baseStyles, variantStyles[variant], sizeStyles[size], className)}
         {...props}
       >
-        {isLoading && <Loader2 className="h-4 w-4 animate-spin text-current" />}
+        {isLoading && <Loader2 className="h-3.5 w-3.5 animate-spin text-current" />}
         {children}
       </button>
     );

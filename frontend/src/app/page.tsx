@@ -4,7 +4,7 @@ import { QuickActions } from "@/components/dashboard/QuickActions";
 import { RecentTransactionsShell } from "@/components/dashboard/RecentTransactionsShell";
 import { BudgetProgressShell } from "@/components/dashboard/BudgetProgressShell";
 import { AdvisorInsightShell } from "@/components/dashboard/AdvisorInsightShell";
-import { Sparkles, Shield, Cpu, Database, Eye } from "lucide-react";
+import { Shield, Cpu, Database, Eye, Sparkles } from "lucide-react";
 
 export default function DashboardPage() {
   const currentDate = new Intl.DateTimeFormat("en-US", {
@@ -16,32 +16,29 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      {/* Welcome & Agent Telemetry Hero */}
-      <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900/90 to-indigo-950/40 p-6 sm:p-8 backdrop-blur-xl">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      {/* Welcome & FinTrack+ Telemetry Hero */}
+      <div className="relative overflow-hidden rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/80 dark:bg-neutral-900/40 p-6 sm:p-7 backdrop-blur-xl">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs font-semibold text-blue-400">
-              <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-medium text-neutral-500 dark:text-neutral-400">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
               <span>{currentDate}</span>
-              <span className="text-slate-600">•</span>
-              <span className="text-slate-400">Financial Copilot Active</span>
+              <span className="text-neutral-300 dark:text-neutral-700">•</span>
+              <span>FinTrack+ Copilot Active</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
               Welcome back, John
             </h2>
-            <p className="text-sm text-slate-400 max-w-xl">
-              Here is your financial pulse. AI Finance Agent has detected no fraudulent anomalies and
-              identified 2 optimization opportunities.
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed">
+              FinTrack+ is continuously monitoring your personal cash flow. No anomalies detected and 2
+              optimization opportunities are ready for review.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 self-start md:self-auto">
-            <div className="flex items-center gap-2 rounded-2xl border border-indigo-500/20 bg-indigo-500/10 px-4 py-2.5 text-xs text-indigo-300">
-              <Sparkles className="h-4 w-4 text-indigo-400" />
-              <div className="flex flex-col">
-                <span className="font-semibold">Autonomous Guard</span>
-                <span className="text-[10px] text-indigo-400/80">Continuous background scan</span>
-              </div>
+          <div className="flex items-center gap-2 self-start md:self-auto">
+            <div className="flex items-center gap-2 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/70 dark:bg-neutral-800/60 px-3.5 py-2 text-xs text-neutral-700 dark:text-neutral-300">
+              <Sparkles className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span className="font-medium text-[11px]">Autonomous Guard Online</span>
             </div>
           </div>
         </div>
@@ -53,10 +50,10 @@ export default function DashboardPage() {
       {/* Quick Action Buttons */}
       <QuickActions />
 
-      {/* AI Advisor Proactive Insights Banner */}
+      {/* FinTrack+ Advisor Intelligence Banner */}
       <AdvisorInsightShell />
 
-      {/* Main Grid: Recent Transactions & Budget Breakdown */}
+      {/* Main Grid: Recent Activity & Budget Progress */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <RecentTransactionsShell />
@@ -66,57 +63,67 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* System Architecture Readiness Matrix (Foundation Step Transparency) */}
-      <div className="rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 backdrop-blur-md">
-        <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+      {/* Subsystem Architecture Matrix */}
+      <div className="rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white/60 dark:bg-neutral-900/30 p-5 backdrop-blur-md">
+        <div className="flex items-center justify-between border-b border-neutral-100 dark:border-neutral-800/80 pb-3 mb-4">
           <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-blue-400" />
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+            <Shield className="h-3.5 w-3.5 text-neutral-500 dark:text-neutral-400" />
+            <h3 className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
               Platform Architecture & Service Status
             </h3>
           </div>
-          <span className="text-[11px] font-mono text-slate-400">Phase 1: Foundation Layer</span>
+          <span className="text-[11px] font-mono text-neutral-400 dark:text-neutral-500">Foundation Ready</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-3">
+          <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3">
             <div className="flex items-center justify-between mb-1">
-              <span className="font-semibold text-white flex items-center gap-1.5">
-                <Cpu className="h-3.5 w-3.5 text-emerald-400" /> FastAPI Core
+              <span className="font-medium text-neutral-900 dark:text-white flex items-center gap-1.5 text-xs">
+                <Cpu className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" /> FastAPI Core
               </span>
-              <span className="text-[10px] font-bold text-emerald-400 uppercase">Operational</span>
+              <span className="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 uppercase">
+                Active
+              </span>
             </div>
-            <p className="text-[11px] text-slate-400">ASGI API Gateway, typed endpoints & CORS active.</p>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              FastAPI ASGI gateway, typed contracts & CORS online.
+            </p>
           </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
+          <div className="rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 p-3">
             <div className="flex items-center justify-between mb-1">
-              <span className="font-semibold text-white flex items-center gap-1.5">
-                <Database className="h-3.5 w-3.5 text-slate-400" /> Supabase DB
+              <span className="font-medium text-neutral-900 dark:text-white flex items-center gap-1.5 text-xs">
+                <Database className="h-3.5 w-3.5 text-neutral-400" /> Supabase DB
               </span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase">Standby</span>
+              <span className="text-[10px] font-medium text-neutral-400 uppercase">Standby</span>
             </div>
-            <p className="text-[11px] text-slate-400">PostgreSQL schema & client drivers ready for Phase 2.</p>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              PostgreSQL schema & client drivers prepared.
+            </p>
           </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
+          <div className="rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 p-3">
             <div className="flex items-center justify-between mb-1">
-              <span className="font-semibold text-white flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-purple-400" /> AI Agent / LLM
+              <span className="font-medium text-neutral-900 dark:text-white flex items-center gap-1.5 text-xs">
+                <Sparkles className="h-3.5 w-3.5 text-neutral-400" /> FinTrack+ AI
               </span>
-              <span className="text-[10px] font-bold text-purple-400 uppercase">Standby</span>
+              <span className="text-[10px] font-medium text-neutral-400 uppercase">Standby</span>
             </div>
-            <p className="text-[11px] text-slate-400">Prompt orchestration & financial reasoning pipeline ready.</p>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              Reasoning prompts & financial agents ready.
+            </p>
           </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
+          <div className="rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 p-3">
             <div className="flex items-center justify-between mb-1">
-              <span className="font-semibold text-white flex items-center gap-1.5">
-                <Eye className="h-3.5 w-3.5 text-cyan-400" /> Vision OCR
+              <span className="font-medium text-neutral-900 dark:text-white flex items-center gap-1.5 text-xs">
+                <Eye className="h-3.5 w-3.5 text-neutral-400" /> Vision OCR
               </span>
-              <span className="text-[10px] font-bold text-cyan-400 uppercase">Standby</span>
+              <span className="text-[10px] font-medium text-neutral-400 uppercase">Standby</span>
             </div>
-            <p className="text-[11px] text-slate-400">Multimodal receipt scanning & extraction pipeline ready.</p>
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              Multimodal receipt extraction pipeline prepared.
+            </p>
           </div>
         </div>
       </div>

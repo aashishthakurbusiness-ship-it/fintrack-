@@ -1,2 +1,2 @@
-"""AI Finance Agent Backend Application Package."""
+"""FinTrack+ Backend Application Package."""
 __version__ = "0.1.0"

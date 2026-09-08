@@ -6,12 +6,11 @@ export function MetricsGrid() {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <StatCard
-        title="Total Net Worth"
+        title="Net Portfolio"
         amount={42850.5}
         changePercent={4.8}
         period="vs last month"
-        variant="blue"
-        icon={<Wallet className="h-5 w-5" />}
+        icon={<Wallet className="h-4 w-4" />}
       />
 
       <StatCard
@@ -19,17 +18,15 @@ export function MetricsGrid() {
         amount={8420.0}
         changePercent={2.1}
         period="vs last month"
-        variant="emerald"
-        icon={<ArrowUpRight className="h-5 w-5" />}
+        icon={<ArrowUpRight className="h-4 w-4" />}
       />
 
       <StatCard
-        title="Monthly Expenses"
+        title="Monthly Burn"
         amount={3280.4}
         changePercent={-6.4}
         period="vs last month"
-        variant="amber"
-        icon={<ArrowDownRight className="h-5 w-5" />}
+        icon={<ArrowDownRight className="h-4 w-4" />}
       />
 
       <StatCard
@@ -37,8 +34,7 @@ export function MetricsGrid() {
         amount={5139.6}
         changePercent={8.5}
         period="61% savings rate"
-        variant="purple"
-        icon={<PiggyBank className="h-5 w-5" />}
+        icon={<PiggyBank className="h-4 w-4" />}
       />
     </div>
   );

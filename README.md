@@ -1,6 +1,6 @@
-# AI Finance Agent (FinTrack+)
+# FinTrack+
 
-> Production-ready AI personal finance web application featuring natural-language expense entry, multimodal receipt scanning, automated financial advisory, and overspending detection.
+> Minimal, production-ready AI personal finance web application featuring natural-language expense entry, multimodal receipt scanning, automated financial advisory, and overspending detection.
 
 ---
 
@@ -70,7 +70,7 @@ cp .env.example .env
 
 Default variables:
 ```env
-PROJECT_NAME="AI Finance Agent API"
+PROJECT_NAME="FinTrack+ API"
 VERSION="0.1.0"
 ENVIRONMENT="development"
 DEBUG=True
